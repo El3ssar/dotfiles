@@ -1,0 +1,87 @@
+[[mgr.prepend_keymap]]
+on = ["f", "a"]
+run = "plugin fr rga"
+desc = "Search file by content (rga)"
+
+# Preview Pane
+[[mgr.prepend_keymap]]
+on   = "<C-p>"
+run  = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = "<S-p>"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+
+# # Zoom preview
+# [[mgr.prepend_keymap]]
+# on   = "+"
+# run  = "plugin zoom 1"
+# desc = "Zoom in hovered file"
+#
+# [[mgr.prepend_keymap]]
+# on   = "-"
+# run  = "plugin zoom -1"
+# desc = "Zoom out hovered file"
+
+# Diff
+[[mgr.prepend_keymap]]
+on   = "<C-d>"
+run  = "plugin diff"
+desc = "Diff the selected with the hovered file"
+
+
+# Smart Enter
+[[mgr.prepend_keymap]]
+on   = "<Enter>"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+# Smart Filter
+[[mgr.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
+
+# Git changes
+[[mgr.prepend_keymap]]
+on   = [ "g", "c" ]
+run  = "plugin git-files"
+desc = "Show Git file changes"
+
+# Chmod
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+# Kdeconnect-send
+[[mgr.prepend_keymap]]
+on   = [ "<C-k>" ]
+run  = "plugin kdeconnect-send"
+desc = "Send selected files via KDE Connect"
+
+# What size
+[[mgr.prepend_keymap]]
+on = [ "s", "." ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+# Clipboard
+[[mgr.prepend_keymap]]
+on = ["<C-y>"]
+run = "plugin wl-clipboard"
+
+# Lazygit
+[[mgr.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
+
+# Command Yazi
+[[mgr.prepend_keymap]]
+on   = [ "c", "p" ]
+run  = "plugin command"
+desc = "Yazi command prompt"

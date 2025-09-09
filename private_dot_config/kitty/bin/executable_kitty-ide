@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Find nvr (required for opening files into the running nvim)
+NVR_BIN="$(command -v nvr || true)"
+if [ -z "${NVR_BIN}" ]; then
+  echo "ERROR: 'nvr' not found. Install: 'pipx install neovim-remote' or 'uv tool install neovim-remote'"
+  exit 127
+fi
+
+# Stable socket per tab (PID-based is fine)
+SOCK="/tmp/nvim-ide-$USER-$$"
+
+# 1) New tab with **YAZI on the left** in the CURRENT kitty cwd
+kitten @ launch --type=tab --tab-title "IDE" --cwd=current \
+  --title "yazi-left" \
+  --env NVIM_LISTEN_ADDRESS="$SOCK" \
+  --env EDITOR="$NVR_BIN --servername $SOCK --remote-silent" \
+  yazi
+
+# 2) Vertical split and start **NVIM server** on the right, also in CURRENT cwd
+kitten @ launch --location=vsplit --cwd=current \
+  --title "nvim-right" \
+  nvim --listen "$SOCK"
+
+# 3) Ensure vertical split and make **NVIM 2/3, YAZI 1/3**
+kitten @ goto-layout tall
+kitten @ focus-window --match title:nvim-right
+# widen the focused (nvim) pane
+kitten @ resize-window --axis=horizontal --increment 30
+

@@ -1,0 +1,37 @@
+[user]
+	name = Daniel Estevez
+	email = kemossabee@gmail.com
+
+[credential]
+	helper = store
+
+[core]
+	askPass = ksshaskpass
+	; pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta 
+	editor = nvim
+[init]
+	defaultBranch = main
+
+[interactive]
+	; diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[delta]
+	navigate = true
+	dark = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Cursor
+	true-color = always
+
+
+[delta "hyperlinks"]
+	hyperlinks = true
+	hyperlinks-file-link-format = "cursor://file/{path}:{line}"
+
+[merge]
+    conflictStyle = zdiff3
