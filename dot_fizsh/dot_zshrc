@@ -1,0 +1,258 @@
+# Ensure ZDOTDIR points to fizsh if not already set
+export ZDOTDIR="$HOME/.fizsh"
+export EDITOR="nvim"
+
+source ${ZDOTDIR}/.antidote/antidote.zsh
+antidote load
+
+# Truecolor + sane pager for colored output
+export COLORTERM=truecolor
+export LESS='-R'   # pass raw colors to less
+
+
+if [[ "$TERM" != "dumb" ]]; then
+  if [[ -x $(which dircolors) ]]; then
+    eval $(dircolors -b)
+  fi
+fi
+
+autoload -Uz colors && colors
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+export ZLS_COLORS="$LS_COLORS"
+
+
+####### User configuration
+
+# # The following lines were added by compinstall
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _ignored _correct _match _prefix _approximate
+zstyle ':completion:*' expand prefix
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-/]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
+zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' original true
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+zstyle ':completion:*' squeeze-slashes true
+
+zstyle :compinstall filename '~/.fizsh/.zshrc'
+
+zstyle ':completion:*:*:*:*:*' menu select
+
+
+# End of lines added by compinstall
+
+autoload -Uz compinit
+compinit
+
+# Ensure the menuselect keymap exists
+zmodload zsh/complist 2>/dev/null
+
+
+# In menu selection mode, make Enter accept the current completion
+if [[ -n ${(M)$(bindkey -l)#menuselect} ]]; then
+  bindkey -M menuselect '^M' .accept-line   # Enter
+  bindkey -M menuselect '^J' .accept-line   # Ctrl-J (backup)
+fi
+
+
+# Outside menu selection, make Enter execute the line
+bindkey '^M' accept-line
+
+
+
+[[ -o login ]] && 0="-fizsh" || 0="fizsh" # Trick to let people check wether fizsh is running, i.e. whether $0 is "fizsh" or "-fizsh"
+SHELL=$(which fizsh)
+
+################################################
+#
+# History
+#
+HISTFILE=$_fizsh_F_DOT_DIR/.fizsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+################################################
+#
+# Append to the history file instead of overwriting it and do it immediately
+# when a command is executed.
+#
+setopt append_history
+setopt inc_append_history
+
+################################################
+#
+# Avoid duplicate entries in the history file
+#
+setopt hist_ignore_all_dups
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+################################################
+#
+# Reduce whitespace in history
+#
+setopt hist_reduce_blanks
+
+################################################
+#
+# Reduce whitespace in history
+#
+setopt hist_ignore_space
+
+################################################
+#
+# Allow interactive comments
+#
+setopt interactive_comments
+
+################################################
+#
+# When entering a nonexistent command name automatically try to find a similar one.
+#
+setopt correct
+
+################################################
+#
+# Get rid of beeps
+#
+setopt no_beep
+
+################################################
+#
+# Set the prompt
+#
+setopt prompt_subst
+
+################################################
+#
+# Set the terminal title
+[[ "xterm" =~ $TERM ]] && precmd () {print -Pn "\e]0;$0: %n @ %M: %~\a"}
+[[ "screen" =~ $TERM ]] && precmd () {print -Pn "\e]0;$0: %n @ %M [screened]: %~\a"}
+
+
+
+
+################################################
+#
+# Source zsh-syntax-highlighting.zsh, zsh-history-substring-search.zsh,
+# fizsh-miscellaneous.zsh and fizshrc
+#
+# source $_fizsh_F_DOT_DIR/zsh-syntax-highlighting.zsh
+source $_fizsh_F_DOT_DIR/zsh-history-substring-search.zsh
+source $_fizsh_F_DOT_DIR/fizsh-miscellaneous.zsh
+
+
+
+################################################
+#
+# Turn zsh into a alias so that we can call zsh without implicitly calling
+# fizsh.
+#
+[[ $+_fizsh_F_OLD_ZDOTDIR -eq 1 ]] && alias zsh="ZDOTDIR=$_fizsh_F_OLD_ZDOTDIR $(whence -p zsh)" 
+[[ $+_fizsh_F_OLD_ZDOTDIR -eq 0 ]] && alias zsh="ZDOTDIR=$HOME $(whence -p zsh)"
+
+#
+WORDCHARS="_"
+bindkey '^W' backward-kill-word
+
+
+# Shell-GPT integration ZSH v0.2
+_sgpt_zsh() {
+if [[ -n "$BUFFER" ]]; then
+    _sgpt_prev_cmd=$BUFFER
+    echo "\n"
+    BUFFER="⌛"
+    zle -I && zle redisplay
+    BUFFER=$(sgpt --shell <<< "$_sgpt_prev_cmd" --no-interaction)
+    zle end-of-line
+fi
+}
+zle -N _sgpt_zsh
+bindkey ^l _sgpt_zsh
+# Shell-GPT integration ZSH v0.2
+
+
+# >>> juliaup initialize >>>
+# !! Contents within this block are managed by juliaup !!
+path=('$HOME/.juliaup/bin' $path)
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/.local/bin
+export PATH=~/.npm-global/bin:$PATH
+# <<< juliaup initialize <<<
+
+
+# Keep PATH entries unique and tidy
+dedupe_path() {
+  local IFS=':' p="" seen=""
+  for dir in $PATH; do
+    [[ -z "$dir" ]] && continue
+    [[ ":$seen:" == *":$dir:"* ]] && continue
+    seen="$seen:$dir"
+    p="${p:+$p:}$dir"
+  done
+  export PATH="$p"
+}
+dedupe_path
+
+# This is for zsh-autosuggestions
+bindkey '^ ' autosuggest-accept
+
+
+export GOPATH="$HOME/.local/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
+
+
+if [[ $TERM == xterm-kitty ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
+
+# Zoxide
+alias cd=z
+eval "$(zoxide init zsh)"
+# This is to make completions to suggest only directories when using z
+compdef __zoxide_z_complete z
+
+# Termvisage
+eval "$(register-python-argcomplete termvisage)"
+
+# Zide
+export PATH="$PATH:$HOME/.config/zide/bin"
+
+############# ALIASES #############
+
+# Clipboard alias
+alias cb=clipboard
+
+# apt-fast alias
+#alias apt=apt-fast
+
+# Clear shell
+alias cl='printf "\033[3J\033[H\033[2J"'
+
+# Use rg instead of grep
+alias grep="rg"
+
+# Use fancy diff from diff-so-fancy
+alias diff=fancy-diff
+
+# Clipboard from Slackadays/ClipBoard
+alias cb="clipboard"
+
+# Starship Launch 3, 2, 1...
+eval "$(starship init zsh)"
+
+# mpv
+alias mpv='mpv --profile=low-latency --vo=kitty --vo-kitty-use-shm=yes --really-quiet'
+
+# chezmoi
+alias cm='chezmoi'
+

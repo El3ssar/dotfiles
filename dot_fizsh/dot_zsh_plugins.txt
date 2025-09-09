@@ -1,0 +1,41 @@
+# Make OMZ sub-plugins work cleanly under Antidote
+getantidote/use-omz
+
+
+# Theme for later, im using custom clover
+#ohmyzsh/ohmyzsh path:themes/clover.zsh-theme
+
+
+# --- OMZ plugins forked from ohmyzsh with my changes
+El3ssar/ohmyzsh path:plugins/git branch:customs
+El3ssar/ohmyzsh path:plugins/cp branch:customs
+El3ssar/ohmyzsh path:plugins/fzf branch:customs
+El3ssar/ohmyzsh path:plugins/emoji branch:customs
+El3ssar/ohmyzsh path:plugins/pip branch:customs
+El3ssar/ohmyzsh path:plugins/python branch:customs
+El3ssar/ohmyzsh path:plugins/rust branch:customs
+El3ssar/ohmyzsh path:plugins/screen branch:customs
+El3ssar/ohmyzsh path:plugins/sudo branch:customs
+El3ssar/ohmyzsh path:plugins/vscode branch:customs
+El3ssar/ohmyzsh path:plugins/zoxide branch:customs
+El3ssar/ohmyzsh path:plugins/copypath branch:customs
+El3ssar/ohmyzsh path:plugins/poetry branch:customs
+
+# --- Custom plugins
+rutchkiwi/copyzshell
+hlissner/zsh-autopair
+zdharma-continuum/fast-syntax-highlighting
+
+# --- My forks with custom changes
+El3ssar/zsh-yazi-cwd
+El3ssar/zsh-eza branch:customs
+El3ssar/zsh-bat branch:customs
+El3ssar/zsh-autosuggestions branch:customs
+
+# --- Other plugins
+z-shell/zsh-diff-so-fancy
+El3ssar/zsh-uv-env branch:customs
+
+# --- My custom prompt
+El3ssar/zsh-clover-prompt
+
