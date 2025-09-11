@@ -179,16 +179,6 @@ bindkey ^l _sgpt_zsh
 # Shell-GPT integration ZSH v0.2
 
 
-# >>> juliaup initialize >>>
-# !! Contents within this block are managed by juliaup !!
-path=('$HOME/.juliaup/bin' $path)
-
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/.local/bin
-export PATH=~/.npm-global/bin:$PATH
-# <<< juliaup initialize <<<
-
-
 # Keep PATH entries unique and tidy
 dedupe_path() {
   local IFS=':' p="" seen=""
