@@ -17,9 +17,6 @@
 	; diffFilter = diff-so-fancy --patch
 	diffFilter = delta --color-only
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-
 [delta]
 	navigate = true
 	dark = true
