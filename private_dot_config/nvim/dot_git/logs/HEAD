@@ -1,2 +1,8 @@
 0000000000000000000000000000000000000000 2de1a1f3ff53e3309128d16b94e5ae2e6f4532fb Daniel Estevez <kemossabee@gmail.com> 1757339195 +0200	clone: from https://github.com/El3ssar/MyAstroNvim
 2de1a1f3ff53e3309128d16b94e5ae2e6f4532fb 4ffbb4313628d3dc5532ba1f86bf2dd38de634bc Daniel Estevez <kemossabee@gmail.com> 1757420457 +0200	commit: My tweaks
+4ffbb4313628d3dc5532ba1f86bf2dd38de634bc 6af3507bed9b492580818683082b3e801201ac5e Daniel Estevez <kemossabee@gmail.com> 1758286863 +0200	commit: Added automatic compile and standalone cbonsai.
+6af3507bed9b492580818683082b3e801201ac5e dcc3d1584a688d5551be217aa482ac09637a21db Daniel Estevez <kemossabee@gmail.com> 1758292107 +0200	commit: Add a dynamic cheatsheet
+dcc3d1584a688d5551be217aa482ac09637a21db 535ca5039bcb7d39666c4071529fd07cf6213ed1 Daniel Estevez <kemossabee@gmail.com> 1758292287 +0200	pull (start): checkout 535ca5039bcb7d39666c4071529fd07cf6213ed1
+535ca5039bcb7d39666c4071529fd07cf6213ed1 eab33a39e3c055cdd9af830b21e4147804f2fa81 Daniel Estevez <kemossabee@gmail.com> 1758292287 +0200	pull (pick): Added automatic compile and standalone cbonsai.
+eab33a39e3c055cdd9af830b21e4147804f2fa81 365a33c9222a891387da2b973ab64c2c33a8243c Daniel Estevez <kemossabee@gmail.com> 1758292287 +0200	pull (pick): Add a dynamic cheatsheet
+365a33c9222a891387da2b973ab64c2c33a8243c 365a33c9222a891387da2b973ab64c2c33a8243c Daniel Estevez <kemossabee@gmail.com> 1758292287 +0200	pull (finish): returning to refs/heads/main
