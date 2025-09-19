@@ -3,3 +3,4 @@
 4ffbb4313628d3dc5532ba1f86bf2dd38de634bc 6af3507bed9b492580818683082b3e801201ac5e Daniel Estevez <kemossabee@gmail.com> 1758286863 +0200	commit: Added automatic compile and standalone cbonsai.
 6af3507bed9b492580818683082b3e801201ac5e dcc3d1584a688d5551be217aa482ac09637a21db Daniel Estevez <kemossabee@gmail.com> 1758292107 +0200	commit: Add a dynamic cheatsheet
 dcc3d1584a688d5551be217aa482ac09637a21db 365a33c9222a891387da2b973ab64c2c33a8243c Daniel Estevez <kemossabee@gmail.com> 1758292287 +0200	pull (finish): refs/heads/main onto 535ca5039bcb7d39666c4071529fd07cf6213ed1
+365a33c9222a891387da2b973ab64c2c33a8243c 925340cc0cb1e421d34e87a51078bdacd798227d Daniel Estevez <kemossabee@gmail.com> 1758313950 +0200	commit: Add lazy-lock
