@@ -211,9 +211,6 @@ eval "$(zoxide init zsh)"
 # This is to make completions to suggest only directories when using z
 compdef __zoxide_z_complete z
 
-# Termvisage
-eval "$(register-python-argcomplete termvisage)"
-
 # Zide
 export PATH="$PATH:$HOME/.config/zide/bin"
 
