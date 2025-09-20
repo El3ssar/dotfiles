@@ -145,8 +145,8 @@ setopt prompt_subst
 # fizsh-miscellaneous.zsh and fizshrc
 #
 # source $_fizsh_F_DOT_DIR/zsh-syntax-highlighting.zsh
-source $_fizsh_F_DOT_DIR/zsh-history-substring-search.zsh
-source $_fizsh_F_DOT_DIR/fizsh-miscellaneous.zsh
+source ~/.fizsh/zsh-history-substring-search.zsh
+source ~/.fizsh/fizsh-miscellaneous.zsh
 
 
 
