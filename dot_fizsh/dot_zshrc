@@ -66,6 +66,10 @@ fi
 # Outside menu selection, make Enter execute the line
 bindkey '^M' accept-line
 
+# Make Alt-. (Meta-.) insert the last word of the previous command
+bindkey '^[.' insert-last-word
+
+
 
 
 [[ -o login ]] && 0="-fizsh" || 0="fizsh" # Trick to let people check wether fizsh is running, i.e. whether $0 is "fizsh" or "-fizsh"
