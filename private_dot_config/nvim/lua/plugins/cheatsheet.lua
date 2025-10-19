@@ -1,4 +1,4 @@
-local M = { "smartinellimarco/nvcheatsheet.nvim" }
+local M = { "El3ssar/nvcheatsheet.nvim" }
 
 -- --- dynamic collector (leader-only, dedupe, robust normalization)
 -- leader-only dynamic collector, prints "<leader>", merges unknown into "Misc"
