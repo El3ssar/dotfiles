@@ -2,6 +2,9 @@
 export ZDOTDIR="$HOME/.fizsh"
 export EDITOR="nvim"
 
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+export PATH="$PATH:$HOME/.local/bin"
+
 source ${ZDOTDIR}/.antidote/antidote.zsh
 antidote load
 
@@ -247,3 +250,5 @@ alias mpv='mpv --profile=low-latency --vo=kitty --vo-kitty-use-shm=yes --really-
 # chezmoi
 alias cm='chezmoi'
 
+#nvim
+alias vim='nvim'
