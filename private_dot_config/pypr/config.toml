@@ -1,0 +1,40 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.term]
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+animation = "fromTop"
+hysteresis = 0.1
+size ="1910px 1030px"
+position = "5px 45px"
+margin = 0
+lazy = true
+unfocus = "hide"
+hide_delay = 0.2
+
+
+[scratchpads.music]
+command = "strawberry"
+class = "org.strawberrymusicplayer.strawberry"
+animation = "fromBottom"
+hysteresis = 0.1
+size ="1910px 1030px"
+position = "5px 45px"
+margin = 0
+lazy = true
+unfocus = "hide"
+hide_delay = 0.2
+
+[scratchpads.btop]
+command = "kitty --class kitty-btop -e btop"
+class = "kitty-btop"
+animation = "fromRight"
+hysteresis = 0.1
+size ="1910px 1030px"
+position = "5px 45px"
+margin = 0
+lazy = true
+unfocus = "hide"
+hide_delay = 0.2
+
