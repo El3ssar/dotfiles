@@ -52,6 +52,8 @@ zstyle ':completion:*:*:*:*:*' menu select
 
 # End of lines added by compinstall
 
+fpath=(~/.zsh/completions $fpath)
+
 autoload -Uz compinit
 compinit
 
