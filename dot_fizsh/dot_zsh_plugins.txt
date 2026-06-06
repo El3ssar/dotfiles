@@ -39,3 +39,7 @@ git@github.com:El3ssar/zsh-uv-env branch:customs
 # --- My custom prompt
 git@github.com:El3ssar/zsh-clover-prompt
 
+
+# --- My plugins
+git@github.com:El3ssar/skim_zsh
+
