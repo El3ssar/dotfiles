@@ -1,5 +1,5 @@
 # Make OMZ sub-plugins work cleanly under Antidote
-getantidote/use-omz
+git@github.com:getantidote/use-omz
 
 
 # Theme for later, im using custom clover
@@ -7,35 +7,35 @@ getantidote/use-omz
 
 
 # --- OMZ plugins forked from ohmyzsh with my changes
-El3ssar/ohmyzsh path:plugins/git branch:customs
-El3ssar/ohmyzsh path:plugins/cp branch:customs
-El3ssar/ohmyzsh path:plugins/fzf branch:customs
-El3ssar/ohmyzsh path:plugins/emoji branch:customs
-El3ssar/ohmyzsh path:plugins/pip branch:customs
-El3ssar/ohmyzsh path:plugins/python branch:customs
-El3ssar/ohmyzsh path:plugins/rust branch:customs
-El3ssar/ohmyzsh path:plugins/screen branch:customs
-El3ssar/ohmyzsh path:plugins/sudo branch:customs
-El3ssar/ohmyzsh path:plugins/vscode branch:customs
-El3ssar/ohmyzsh path:plugins/zoxide branch:customs
-El3ssar/ohmyzsh path:plugins/copypath branch:customs
-El3ssar/ohmyzsh path:plugins/poetry branch:customs
+git@github.com:ohmyzsh/ohmyzsh path:plugins/git
+git@github.com:ohmyzsh/ohmyzsh path:plugins/cp
+git@github.com:ohmyzsh/ohmyzsh path:plugins/fzf
+git@github.com:ohmyzsh/ohmyzsh path:plugins/emoji
+git@github.com:ohmyzsh/ohmyzsh path:plugins/pip
+git@github.com:ohmyzsh/ohmyzsh path:plugins/python
+git@github.com:ohmyzsh/ohmyzsh path:plugins/rust
+git@github.com:ohmyzsh/ohmyzsh path:plugins/screen
+git@github.com:ohmyzsh/ohmyzsh path:plugins/sudo
+git@github.com:ohmyzsh/ohmyzsh path:plugins/vscode
+git@github.com:ohmyzsh/ohmyzsh path:plugins/zoxide 
+git@github.com:ohmyzsh/ohmyzsh path:plugins/copypath
+git@github.com:ohmyzsh/ohmyzsh path:plugins/poetry
 
 # --- Custom plugins
-rutchkiwi/copyzshell
-hlissner/zsh-autopair
-zdharma-continuum/fast-syntax-highlighting
+git@github.com:rutchkiwi/copyzshell
+git@github.com:hlissner/zsh-autopair
+git@github.com:zdharma-continuum/fast-syntax-highlighting
 
 # --- My forks with custom changes
-El3ssar/zsh-yazi-cwd
-El3ssar/zsh-eza branch:customs
-El3ssar/zsh-bat branch:customs
-El3ssar/zsh-autosuggestions branch:customs
+git@github.com:El3ssar/zsh-yazi-cwd
+git@github.com:El3ssar/zsh-eza branch:customs
+git@github.com:El3ssar/zsh-bat branch:customs
+git@github.com:El3ssar/zsh-autosuggestions branch:customs
 
 # --- Other plugins
-z-shell/zsh-diff-so-fancy
-El3ssar/zsh-uv-env branch:customs
+git@github.com:z-shell/zsh-diff-so-fancy
+git@github.com:El3ssar/zsh-uv-env branch:customs
 
 # --- My custom prompt
-El3ssar/zsh-clover-prompt
+git@github.com:El3ssar/zsh-clover-prompt
 
